@@ -42,4 +42,3 @@
         <small style="color: #666;">* 이 계정은 읽기 전용으로 제공됩니다.</small>
     </div>
 </div>
-<script src="/assets/js/common.js"></script>
