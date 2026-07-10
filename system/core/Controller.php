@@ -58,6 +58,15 @@ class CI_Controller {
 	{
 		return self::$instance;
 	}
+	// 로그체크
+	public function logd($data = null) {
+		log_message('debug' , print_r($data , true));
+	}
+
+	// 레이아웃 헤더,푸터 로드
+    public function render($view, $data = array()) {
+        $this->load->view($view, $data);
+    }
 }
 // END Controller class
 

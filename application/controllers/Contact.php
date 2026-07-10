@@ -1,25 +1,25 @@
 <?php if (! defined('BASEPATH')) exit('No direct script access allowed');
-
 /**
  * @property CI_Loader $load
  * @property CI_Session $session
- * @property Project_model $project_model
+ * @property Contact_model $contact_model
  */
-class Main extends CI_Controller
-{
 
+class Contact extends CI_Controller
+{
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('project_model');
+        // 모델 로드
+        $this->load->model('contact_model');
     }
 
     public function index()
     {
-        // 모델 로드
-        $data['projects'] = $this->project_model->get_all_projects(); // 프로젝트
-        $data['title'] = "포트폴리오 | 백엔드 개발자";
-        $this->load->view('main', $data);
+        $data['contact'] = $this->contact_model->get_data_by_category('contact');
+
+        $data['title'] = "연락처 | 장한음";
+        $this->load->view('contact', $data);
     }
 }
 

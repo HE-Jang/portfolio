@@ -415,9 +415,26 @@ class CI_Loader {
 	 * @param	bool
 	 * @return	void
 	 */
-	public function view($view, $vars = array(), $return = FALSE)
-	{
-		return $this->_ci_load(array('_ci_view' => $view, '_ci_vars' => $this->_ci_object_to_array($vars), '_ci_return' => $return));
+	public function view($view, $vars = array(), $return = FALSE) {
+		// 1. 헤더/푸터 자체는 무조건 그냥 로드
+		if (strpos($view, 'layout/') === 0) {
+			return $this->_ci_load(array('_ci_view' => $view, '_ci_vars' => $this->_ci_object_to_array($vars), '_ci_return' => $return));
+		}
+
+		// 2. 레이아웃 제외 목록 (뷰 파일 이름 그대로)
+		$exclude_layout = array('login'); 
+
+		// 3. 제외 목록에 있다면 레이아웃 없이 본문만 로드
+		if (in_array($view, $exclude_layout)) {
+			return $this->_ci_load(array('_ci_view' => $view, '_ci_vars' => $this->_ci_object_to_array($vars), '_ci_return' => $return));
+		}
+
+		// 4. 그 외에는 헤더 + 본문 + 푸터
+		$this->view('layout/header', $vars);
+		$content = $this->_ci_load(array('_ci_view' => $view, '_ci_vars' => $this->_ci_object_to_array($vars), '_ci_return' => $return));
+		$this->view('layout/footer', $vars);
+		
+		return $content;
 	}
 
 	// --------------------------------------------------------------------

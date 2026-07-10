@@ -1,41 +1,23 @@
-<style>
-    body {
-        margin: 0;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #f5f5f5;
-    }
+<!-- 메인 상단 -->
+<section style="text-align: center; padding: 50px 0;">
+    <h2>안녕하세요, 개발자 [장한음]입니다.</h2>
+    <p>저는 실제 서비스를 고민하고, 코드로 문제를 해결하는 것을 좋아합니다.</p>
+</section>
 
-    .login-box {
-        padding: 30px;
-        background: #fff;
-        border-radius: 8px;
-    }
-
-    .login-box p {
-        margin-bottom: 10px;
-    }
-
-    .login-box input {
-        width: 260px;
-        padding: 8px;
-        box-sizing: border-box;
-    }
-
-    .login-box button {
-        width: 100%;
-        padding: 8px;
-    }
-</style>
-
-<div class="login-box">
-    <h3>로그인</h3>
-    <form action="/main/login" method="post" onsubmit="return Common.loginCheck(this)">
-        <p><input type="text" name="id" placeholder="ID"></p>
-        <p><input type="password" name="pw" placeholder="Password"></p>
-        <button type="submit">로그인</button>
-    </form>
-</div>
+<!-- 메인 하단: 프로젝트 리스트 -->
+<section>
+    <h3>작업 프로젝트</h3>
+    <div class="project-grid">
+        <!-- 프로젝트 카드 반복문이 들어갈 자리 -->
+        <?php foreach ($projects as $row): ?>
+            <div class="card" style="border: 1px solid #ddd; padding: 15px;">
+                <h4>
+                    <span class="project-title"><?= htmlspecialchars($row['title']) ?></span>
+                    <span class="project-seed">(<?= htmlspecialchars($row['seed']) ?>)</span>
+                </h4>
+                <p><?php echo $row['description']; ?></p>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</section>
 <script src="/assets/js/common.js"></script>

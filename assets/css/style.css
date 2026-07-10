@@ -1,0 +1,142 @@
+/* 레이아웃 */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { display: flex; flex-direction: column; min-height: 100vh; font-family: sans-serif; }
+
+header { height: 80px; background: #333; color: white; display: flex; align-items: center; justify-content: center; }
+
+/* 네비게이션 */
+nav { background: #f8f9fa; border-bottom: 2px solid #333; padding: 15px 0; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+nav a { color: #333; text-decoration: none; font-weight: bold; padding: 10px 20px; margin: 0 10px; border-radius: 5px; transition: 0.3s; }
+nav a:hover { background-color: #333; color: #fff; }
+
+/* 메인 및 카드 */
+main { flex: 1; padding: 40px 20px; max-width: 1200px; margin: 0 auto; width: 100%; }
+
+/* 카드 그리드 설정 */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+.card h4 {
+    display: flex;
+    flex-wrap: wrap; /* 제목이 너무 길면 다음 줄로 넘어가되 */
+    align-items: baseline; /* 괄호와 텍스트의 밑선을 맞춤 */
+    gap: 8px; /* 텍스트와 괄호 사이 간격 */
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 1.25rem;
+}
+
+.project-title {
+    word-break: keep-all; /* 단어 단위로 자연스럽게 줄바꿈 */
+}
+
+.project-seed {
+    font-size: 0.85em;
+    white-space: nowrap; /* 괄호 부분은 줄바꿈 되지 않도록 고정 */
+}
+
+/* 카드 기본 디자인 */
+.card {
+    background: #fff;
+    border: 1px solid #e1e4e8;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* 카드 호버 효과 */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+    border-color: #3498db;
+}
+
+.card h4 { margin-top: 0; color: #2c3e50; font-size: 1.25rem; }
+.card p { color: #666; font-size: 0.95rem; line-height: 1.6; }
+/* 푸터 */
+footer { height: 60px; background: #f4f4f4; text-align: center; display: flex; align-items: center; justify-content: center; border-top: 1px solid #ddd; }
+/* CSS 변수 설정으로 일관된 디자인 */
+:root {
+    --primary-color: #333;
+    --text-color: #333;
+}
+/* 섹션 공통 스타일 */
+.section {
+    margin-bottom: 25px;
+    padding: 25px;
+    border-left: 5px solid var(--primary-color);
+    background: var(--bg-color);
+    border-radius: 0 8px 8px 0;
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* 데이터 아이템 스타일 */
+.item {
+    margin-bottom: 12px;
+}
+
+.label {
+    font-weight: bold;
+    color: #555;
+    display: inline-block;
+    width: 100px;
+}
+
+/* Skills 전용 뱃지 스타일 */
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.skill-badge {
+    background: #e1f5fe;
+    color: #0277bd;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.business-card {
+    width: 350px;
+    background: linear-gradient(135deg, #2d3436, #000000); /* 더 어두운 그라데이션 */
+    color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    margin: 50px auto;
+    /* 카드 자체에 은은한 테두리를 주면 더 명확합니다 */
+    border: 1px solid #444; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.card-name { 
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    margin-bottom: 10px; 
+    color: #ffffff; /* 이름도 흰색 */
+}
+
+.contact-item { 
+    margin: 8px 0; 
+    font-size: 0.95rem; 
+    color: #ffffff; /* 아이템도 흰색 */
+}
+
+.contact-item a {
+    color: #f1f1f1 !important; /* 링크는 약간 밝은 흰색 */
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+}
