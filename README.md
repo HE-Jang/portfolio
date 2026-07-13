@@ -1,11 +1,34 @@
-# CodeIgniter 2
-Open Source PHP Framework (originally from EllisLab)
+## 👨‍💻 4년 차 웹 개발자 [본인 이름]의 포트폴리오
 
-For more info, please refer to the user-guide at http://www.codeigniter.com/userguide2/  
-(also available within the download package for offline use)
+PHP(CodeIgniter 2 / 7.4)를 기반으로 레거시 시스템 운영 및 기능 고도화 경험을 보유하고 있으며, 사용자 편의성과 시스템 효율성을 동시에 고려하는 개발을 지향합니다.
 
-**WARNING:** *CodeIgniter 2.x is no longer under development and only receives security patches until October 31st, 2015.
-Please update your installation to the latest CodeIgniter 3.x version available
-(upgrade instructions [here](http://www.codeigniter.com/userguide3/installation/upgrade_300.html)).*
+---
 
-코드이그나이터2 , PHP 7.4 버전을 활용 하였습니다.
+## 🛠 주요 프로젝트: 관리자 유저 리스트 관리 시스템
+
+실무에서 가장 빈번하게 발생하는 **데이터 조회 및 관리 효율성** 문제를 해결하기 위해 구현한 관리자용 유저 관리 모듈입니다.
+
+### 📋 주요 구현 기능
+
+- **DataTable 활용:** 사용자 리스트 조회, 실시간 검색, 컬럼별 정렬 기능 구현.
+- **사용자 편의성:** 페이지당 표시 개수 설정 및 직관적인 UI/UX 제공.
+
+### 💡 기술적 고민 및 해결: 서버 사이드 데이터 최적화
+
+단순한 기능 구현을 넘어, 실제 운영 환경에서의 **데이터 처리 효율성**을 최우선으로 고려했습니다.
+
+- **Server-side Processing 적용:**
+  - 모든 데이터를 한 번에 로드하지 않고, **DataTable의 Server-side Processing** 기능을 활용하여 요청된 페이지의 데이터만 비동기(Ajax)로 조회하도록 구현했습니다. 이를 통해 대용량 데이터 환경에서도 브라우저 리소스 부하를 최소화하고 응답 속도를 개선했습니다.
+- **검색 및 쿼리 최적화:**
+  - 검색어 입력 시마다 서버 요청을 수행하며, DB 인덱스(Index)가 적용된 컬럼을 활용해 검색 쿼리를 최적화했습니다.
+- **보안성 및 데이터 무결성:**
+  - CodeIgniter의 Query Builder와 Parameter Binding을 사용하여 **SQL Injection** 위협을 차단하고, 서버 측 데이터 검증 로직을 강화했습니다.
+
+### 🚀 학습 포인트
+
+- 데이터의 규모와 성격에 따라 최적의 처리 방식(Paging/Filtering)을 선택하는 기준을 정립했습니다.
+- 프론트엔드와 백엔드 간의 데이터 교환 규격을 정의하며 효율적인 API 통신 구조를 설계했습니다.
+
+---
+
+_본 포트폴리오는 자기소개 페이지와 관리자 페이지의 실무 기능(조회/정렬/검색) 구현 예시를 포함하고 있습니다._
