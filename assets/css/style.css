@@ -163,14 +163,40 @@ h2 {
     background-color: #f8f9fa;
 }
 .user-list-header h2 {
-        color: #333;
-        border-bottom: 2px solid #eee;
-        padding-bottom: 10px;
-    }
-    .alert-info {
-        background-color: #e7f3fe;
-        border-left: 6px solid #2196F3;
-        padding: 10px;
-        margin-top: 10px;
-        font-size: 0.9em;
-    }
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+.alert-info {
+    background-color: #e7f3fe;
+    border-left: 6px solid #2196F3;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+/* 관리자 메뉴 강조를 위한 가벼운 스타일 (선택사항) */
+nav a.admin-menu {
+    color: #d9534f;
+    /* 붉은 계열이나 포인트 컬러 */
+    font-weight: bold;
+}
+
+nav a.admin-menu:hover {
+    text-decoration: underline;
+}
+
+/* 관리 컬럼 내 버튼 그룹을 Flexbox로 설정 */
+.btn-group-flex {
+    display: flex;
+    width: 100%;
+    gap: 4px; /* 버튼 사이의 미세한 간격 (원하지 않으면 제거 가능) */
+}
+
+/* 수정, 삭제 버튼이 각각 50%씩 영역을 차지하도록 설정 */
+.btn-group-flex .btn {
+    flex: 1; /* 가로 공간을 1:1 비율로 똑같이 나눠 가짐 */
+    width: 50%;
+    text-align: center;
+    padding: 5px 0; /* 높이감 조절 */
+}

@@ -63,4 +63,30 @@ class User_model extends CI_Model
         $this->_apply_search($search);
         return $this->db->count_all_results();
     }
+
+    // 특정 유저 단건 조회
+    public function get_user_by_id($id)
+    {
+        return $this->db->get_where('users', array('id' => $id))->row_array();
+    }
+
+    // 유저 등록 쿼리
+    public function insert_user($data)
+    {
+        return $this->db->insert('users', $data);
+    }
+
+    // 유저 수정 쿼리
+    public function update_user($id, $data)
+    {
+        $this->db->where('user_id', $id);
+        return $this->db->update('users', $data);
+    }
+
+    // 유저 삭제 쿼리
+    public function delete_user($id)
+    {
+        $this->db->where('id', $id);
+        return $this->db->delete('users');
+    }
 }

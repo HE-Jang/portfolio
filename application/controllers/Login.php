@@ -31,6 +31,7 @@ class Login extends CI_Controller
                 'user_idx'  => $user['id'],
                 'user_id'   => $user['user_id'],
                 'user_name' => $user['user_name'],
+                'role' => $user['role'], // 관리자 권한, 체험용 권한 변경
             ]);
 
             // 성공 시 알림 후 이동
